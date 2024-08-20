@@ -119,14 +119,16 @@ class KMeans():
         return np.sqrt(np.sum([(x[i] - y[i]) ** 2 for i in range(len(x))]))
 
 
+    
+num_points = 1000
+data, target_array = generate_data(num_points, 3)
 
-if __name__ == '__main__':    
-    # Example use in 2D
-    num_points = 1000
-    data, target_array = generate_data(num_points, 3)
+data = data.tolist()
+[x.append(0) for x in data]
+data = np.array(data)
 
-    kmeans = KMeans(data, 3)
-    kmeans.auto_run(plot_=True)
+kmeans = KMeans(data, 3)
+kmeans.auto_run(plot_=True)
 
 
 
